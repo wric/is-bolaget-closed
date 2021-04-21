@@ -34,7 +34,7 @@ export const SearchList = () => {
   return <Container>
     <form onSubmit={handleSubmit}>
       <FormControl>
-        <InputGroup colorScheme="purple">
+        <InputGroup>
           <InputLeftElement
             pointerEvents="none"
             color="gray.300"
@@ -47,10 +47,12 @@ export const SearchList = () => {
             required={true}
             value={search}
             onChange={handleChange}
+            size="md"
           />
           <InputRightElement width="4.5rem">
             <Button
-              h="1.75rem"
+              // h="1.75rem"
+              mr="1.5"
               size="sm"
               isLoading={isLoading}
               type="submit"

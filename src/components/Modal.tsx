@@ -19,7 +19,7 @@ import { useRef } from "react";
 
 export const InfoModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const initialRef = useRef();
+  const initialRef = useRef<HTMLButtonElement>(null);
 
   return (
     <>

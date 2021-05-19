@@ -12,13 +12,13 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { Site } from "@components/Site";
-import { SystembolagetSite } from "@models/Site";
+import { BolagetSite } from "@models/Site";
 import { ChangeEvent, FormEvent, useState } from "react";
 
 export const SearchList = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
-  const [sites, setSites] = useState<SystembolagetSite[] | null>(null);
+  const [sites, setSites] = useState<BolagetSite[] | null>(null);
 
   const onChange = async (ev: ChangeEvent<HTMLInputElement>) => {
     setSearch(ev.currentTarget.value);
@@ -28,7 +28,7 @@ export const SearchList = () => {
     ev.preventDefault();
     setIsLoading(true);
     const res = await fetch(`/api/sites?search=${search}`);
-    const sites: SystembolagetSite[] = await res.json();
+    const sites: BolagetSite[] = await res.json();
     setSites(sites);
     setIsLoading(false);
   };

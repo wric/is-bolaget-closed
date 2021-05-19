@@ -1,15 +1,13 @@
-import { Container } from "../components/Container";
-import { DarkModeSwitch } from "../components/DarkModeSwitch";
-import { Hero } from "../components/Hero";
-import { Main } from "../components/Main";
-import { SearchList } from "../components/SearchList";
+import { Container } from "@components/Container";
+import { Hero } from "@components/Hero";
+import { Navbar } from "@components/Navbar";
+import { SearchList } from "@components/Search";
 
 const Index = () => (
   <Container height="100vh">
-    <Hero />
-    <Main />
+    <Navbar />
+    <Hero title="Is bolaget closed?" />
     <SearchList />
-    <DarkModeSwitch />
   </Container>
 );
 

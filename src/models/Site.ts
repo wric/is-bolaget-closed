@@ -1,4 +1,17 @@
-export type Site = {
+import {
+  BolagetOpeningHour,
+  SystembolagetOpeningHour,
+} from "@models/OpeningHour";
+
+export type BolagetSite = {
+  siteId: string;
+  name: string;
+  address: string;
+  position: string;
+  openingHours: BolagetOpeningHour[];
+};
+
+export type SystembolagetSite = {
   siteId: string;
   alias: string;
   streetAddress: string;
@@ -10,15 +23,30 @@ export type Site = {
   isAgent: boolean;
   isOpen: boolean;
   isBlocked: boolean;
-  openingHours: OpeningHour[];
+  openingHours: SystembolagetOpeningHour[];
   position: Position;
 };
 
-export type OpeningHour = {
-  date: string;
-  openFrom: string;
-  openTo: string;
-  reason: string | null;
+export type SystembolagetStore = {
+  siteId: string;
+  alias: string;
+  isActive: boolean;
+  isBlocked: boolean;
+  isOpen: boolean;
+  isBlockedByOrderLimit: boolean;
+  maxOrdersPerDay: number | null;
+  ordersToday: number;
+  address: string;
+  postalCode: string;
+  city: string;
+  phone: string;
+  county: string;
+  isFullAssortmentOrderStore: boolean;
+  isTastingStore: boolean;
+  position: Position;
+  openingHours: SystembolagetOpeningHour[];
+  parentSiteId: string;
+  searchArea: string;
 };
 
 type Position = {

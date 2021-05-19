@@ -1,7 +1,9 @@
+import { mapSite, notAgentNorBlocked } from "@lib/site";
+import { systembolagetApi } from "@lib/systembolaget";
+import { SystembolagetSearch } from "@models/Search";
 import { NextApiRequest, NextApiResponse } from "next";
-import { searchSite } from "../../../lib/systembolaget";
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+const endpoint = async (req: NextApiRequest, res: NextApiResponse) => {
   const {
     query: { search },
     method,
@@ -9,17 +11,26 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   if (method !== "GET") {
     res.setHeader("Allow", ["GET"]);
-    res.status(405).end(`Method ${method} Not Allowed`);
+    res.status(405).end(`Method ${method} not allowed.`);
     return;
   }
 
-  if (search === "" || search === []) {
-    res.status(400).end("`search` query is required");
+  if (!search) {
+    const message = "'search' query is required.";
+    res.status(400).json({ message });
     return;
   }
 
-  const sites = await searchSite(search as string);
+  const [ok, result] = await systembolagetApi<SystembolagetSearch>(
+    `/Search/Site?q=${search}`,
+  );
+  if (!ok) {
+    const message = `Unable to search for query '${search}'`;
+    res.status(400).json({ message });
+  }
+
+  const sites = result.siteViewModel.filter(notAgentNorBlocked).map(mapSite);
   res.status(200).json(sites);
 };
 
-export default handler;
+export default endpoint;

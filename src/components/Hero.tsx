@@ -1,17 +1,17 @@
 import { Flex, Heading } from "@chakra-ui/react";
 
-export const Hero = ({ title }: { title: string }) => (
-  <Flex
+type Props = { title: string };
+
+export const Hero = ({ title }: Props) => {
+  return <Flex
     justifyContent="center"
     alignItems="center"
     bgGradient="linear(to-l, #5B86E5, #36D1DC)"
-    pt={32}
+    pt={24}
+    pb={2}
     bgClip="text"
+    maxWidth="32rem"
   >
-    <Heading fontSize="6vw">{title}</Heading>
-  </Flex>
-);
-
-Hero.defaultProps = {
-  title: "is-bolaget-open",
+    <Heading fontSize="2.25rem">{title}</Heading>
+  </Flex>;
 };

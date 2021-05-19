@@ -1,33 +1,14 @@
-# Example app with [chakra-ui](https://github.com/chakra-ui/chakra-ui) and Typescript
+# Is bolaget closed?
 
-This example features how to use [chakra-ui](https://github.com/chakra-ui/chakra-ui) as the component library within a Next.js app with typescript.
+This site provides endpoints to query for deviation in opening hours for Systembolaget. I created this site due to my own inability to remember and plan for than a few days ahead. This backfired more than once when forgetting about holidays etc and lead to me missing out of on great beverages and memories.
 
-Next.js and chakra-ui have built-in TypeScript declarations, so we'll get autocompletion for their modules straight away.
+All data and search funcitonality is provided by Systembolaget official API. You can find more information about it on [https://api-portal.systembolaget.se/](https://api-portal.systembolaget.se/) and everything else on Systembolaget official website [https://www.systembolaget.se/](https://www.systembolaget.se/).
 
-We are connecting the Next.js `_app.js` with `chakra-ui`'s Provider and theme so the pages can have app-wide dark/light mode. We are also creating some components which shows the usage of `chakra-ui`'s style props.
+## Instructions
 
-## Deploy your own
+Search and find your favorite store. Today's and tomorrow's closing time will show in the list. If the store is closed one day a closed sign is visible instead of the time. If the store's closing time deviates from the normal it will be flagged with a red color. Click the 🔗 button to get to the status endpoint. Create an automated daily request to the endpoint, use the `daysAhead` query parameter and let technology warn you when opening hours are deviating. Check `isDeviant` for deviations.
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+## Gotchas
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-chakra-ui-typescript&project-name=with-chakra-ui-typescript&repository-name=with-chakra-ui-typescript)
-
-## How to use
-
-### Using `create-next-app`
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-chakra-ui-typescript with-chakra-ui-typescript-app
-# or
-yarn create next-app --example with-chakra-ui-typescript with-chakra-ui-typescript-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-## Notes
-
-Chakra has supported Gradients and RTL in `v1.1`. To utilize RTL, [add RTL direction and swap](https://chakra-ui.com/docs/features/rtl-support).
-
-If you don't have multi-direction app, you should make `<Html lang="ar" dir="rtl">` inside `_document.ts`.
+- Sundays are always closed and are therefore not a deviation.
+- Stores always open at 10:00 and therefore opening time is not displayed.

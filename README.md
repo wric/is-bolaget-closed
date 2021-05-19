@@ -15,6 +15,10 @@ Search and find your favorite store. Today's and tomorrow's closing time will sh
 - Sundays are always closed and are therefore not a deviation.
 - Stores always open at 10:00 and therefore opening time is not displayed.
 
+### License
+
+For this website, see the LICENSE file.
+
 ### Tech
 
 - [Next.js](https://nextjs.org/)

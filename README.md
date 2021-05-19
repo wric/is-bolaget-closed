@@ -2,6 +2,8 @@
 
 This site provides endpoints to query for deviation in opening hours for Systembolaget. I created this site due to my own inability to remember and plan for than a few days ahead. This backfired more than once when forgetting about holidays etc and lead to me missing out of on great beverages and memories.
 
+Visit: [https://is-bolaget-closed.ricw.se/](https://is-bolaget-closed.ricw.se/)
+
 All data and search funcitonality is provided by Systembolaget official API. You can find more information about it on [https://api-portal.systembolaget.se/](https://api-portal.systembolaget.se/) and everything else on Systembolaget official website [https://www.systembolaget.se/](https://www.systembolaget.se/).
 
 ## Instructions

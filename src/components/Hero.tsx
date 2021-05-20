@@ -11,6 +11,6 @@ export const Hero = ({ title }: Props) => {
     bgClip="text"
     maxWidth="32rem"
   >
-    <Heading display="inline" fontSize="2.25rem">{title}</Heading>
+    <Heading fontSize="2.25rem">{title}</Heading>
   </Box>;
 };

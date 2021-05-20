@@ -1,11 +1,10 @@
-import { Flex, Heading } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 
 type Props = { title: string };
 
 export const Hero = ({ title }: Props) => {
-  return <Flex
-    justifyContent="center"
-    alignItems="center"
+  return <Box
+    display="inline"
     bgGradient="linear(to-l, #5B86E5, #36D1DC)"
     pt={24}
     pb={2}
@@ -13,5 +12,5 @@ export const Hero = ({ title }: Props) => {
     maxWidth="32rem"
   >
     <Heading fontSize="2.25rem">{title}</Heading>
-  </Flex>;
+  </Box>;
 };
